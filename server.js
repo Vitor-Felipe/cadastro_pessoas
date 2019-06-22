@@ -18,4 +18,4 @@ app.use(helmet.frameguard());
 app.use(helmet.hidePoweredBy());
 
 app.use("/node/cadastro_pessoas/", rotas);
-app.listen(process.env.PORT);
+app.listen(process.env.PORT || 3000);

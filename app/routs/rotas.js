@@ -9,5 +9,8 @@ router.use(function timeLog(req, res, next){
 });
 
 router.get('/ping', controller.Ping);
+router.get();
+router.post();
+router.put();
 
 module.exports = router;
