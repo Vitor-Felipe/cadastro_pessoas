@@ -3,7 +3,7 @@ module.exports = {
     get: (connection) => {
         var options = {sql: 'CALL user_list()', nestTables: true};
         return new Promise((resolve, reject) => {
-            connection.query(options, (error, result) => {
+            connection.query('CALL user_list()', (error, result) => {
                 if (error) {
                     reject(error);
                 } else {
