@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const cors = require('cors');
-const rotas = require('./app/routs/rotas');
+const routes = require('./app/routes/routes');
 
 const app = express();
 
@@ -17,5 +17,5 @@ app.use(helmet.xssFilter());
 app.use(helmet.frameguard());
 app.use(helmet.hidePoweredBy());
 
-app.use("/node/cadastro_pessoas/", rotas);
+app.use("/node/cadastro_pessoas/", routes);
 app.listen(process.env.PORT || 3000);
