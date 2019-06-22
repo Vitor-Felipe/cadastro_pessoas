@@ -9,8 +9,10 @@ router.use(function timeLog(req, res, next){
 });
 
 router.get('/ping', controller.Ping);
+router.post('/getByLogin', controller.getByLogin);
 router.get('/', controller.user_getAll);
 router.post('/', controller.user_add);
 router.put('/', controller.user_update);
+router.delete('/', controller.user_delete);
 
 module.exports = router;

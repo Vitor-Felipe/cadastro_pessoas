@@ -36,8 +36,19 @@ exports.user_add = async (req, res) =>{
     }
 }
 
-exports.GetById =  (req, res) =>{
-
+exports.getByLogin = async (req, res) =>{
+    let sql;
+    try {
+        sql = await connection.getConnection();
+        let result = await methods.getByLogin(sql,req.body);
+        res.status(200).json(result);
+        sql.release();
+    } catch (error) {
+        res.status(500).json({"error": error.message});
+        if(sql){
+            sql.release();
+        }
+    }
 }
 
 
@@ -53,4 +64,18 @@ exports.user_update = async (req, res) =>{
             sql.release();
         }
     }
+}
+
+    exports.user_delete = async (req, res) =>{
+        try {
+          sql = await connection.getConnection();
+          let result = await methods.delete_user(sql,req.body);
+          res.status(200).json(result);
+          sql.release();
+        } catch (error) {
+            res.status(500).json({"error": error.message});
+            if(sql){
+                sql.release();
+            }
+        }
 }
